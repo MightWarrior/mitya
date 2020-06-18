@@ -1,4 +1,5 @@
 import { AUTH_CODES } from "../constants";
+import {v4 as uuidv4} from 'uuid'
 
 export const getLoginValidationMessage = (validationCode) => {
   switch (validationCode) {
@@ -17,3 +18,6 @@ export const passwordValidationError = (password) => {
   return password.match(regex) ? '' : 'Must contain at least 8 characters, including upper, lowercase and digit';
 };
 
+export const getId = () => {
+  return uuidv4();
+}

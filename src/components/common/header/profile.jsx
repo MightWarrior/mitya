@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import OutsideClickHandler from "../outsideClickHandler/index";
 
 const Profile = (props) => {
-  const { logoutUser, user } = props;
+  const { logoutUser, user, profileToggle} = props;
   const [isSideOpen, setSideOpen] = useState(false);
 
   const toggleProfile = () => {
@@ -20,7 +20,7 @@ const Profile = (props) => {
 
   return (
     <div className={ profileClassName }>
-      <div className="profile-content" onClick={ toggleProfile }>
+      <div className="profile-content" onClick={ profileToggle }>
         <div className="profile-info">
           <div className="profile-name">{ user === 'admin' ? 'Administrator' : 'User'}</div>
         </div>

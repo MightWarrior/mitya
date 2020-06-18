@@ -23,3 +23,46 @@ export const profile = (url, idToken) => customFetch(url, {
     'x-auth-token': idToken,
   }
 })
+
+export const max = (url, idToken) => customFetch(url, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': idToken,
+  }
+})
+
+export const products = (url, idToken) => customFetch(url, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': idToken,
+  }
+})
+
+export const buy =  (url, body, idToken) => customFetch(url, {
+  method: 'POST',
+  body: JSON.stringify(body),
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': idToken,
+  }
+})
+
+export const create = (url, body, idToken) => customFetch(url, {
+  method: 'POST',
+  body: JSON.stringify(body),
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': idToken,
+  }
+})
+
+export const update = (url, body, idToken) => customFetch(url, {
+  method: 'POST',
+  body: JSON.stringify(body),
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': idToken,
+  }
+})
