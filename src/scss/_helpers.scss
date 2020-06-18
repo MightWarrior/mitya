@@ -1,0 +1,71 @@
+//visually hidden, but available for screen readers
+%visually-hidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
+}
+
+//basic form control
+%form-control {
+  position: relative;
+  width: 100%;
+}
+
+$control-horizontal-indent: 15px;
+$border-radius: 5px;
+$border-radius-small: 2px;
+$border-radius-medium: 11px;
+$border-radius-big: 24px;
+
+//input, textarea basic control
+%text-control {
+  display: block;
+  width: 100%;
+  height: $form-control-height;
+  border: solid 1px $pinkish-grey;
+  background-color: $white;
+  padding: 8px $control-horizontal-indent;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.14;
+  border-radius: $border-radius;
+  box-shadow: none;
+  transition: $transition;
+
+  &::placeholder,
+  &::-webkit-input-placeholder {
+    font: inherit;
+    font-weight: normal;
+    color: $steel;
+  }
+
+  &.disabled,
+  &:disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: .5;
+    color: $cloudy-blue;
+    border-color: $disabled-border-color;
+  }
+
+  &:not(:disabled):not(.disabled):focus,
+  &:not(:disabled):not(.disabled):hover {
+    border-color: $steel;
+  }
+
+  &.has-error,
+  .form-control.has-error & {
+    border-color: $tomato;
+  }
+}

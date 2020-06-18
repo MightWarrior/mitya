@@ -1,0 +1,170 @@
+%btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $border-radius-big;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: $transition;
+
+  &:disabled,
+  &.disabled {
+    color: $white;
+    background-color: $cloudy-blue;
+    border-color: $cloudy-blue;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:disabled.has-tip {
+    cursor: not-allowed;
+    pointer-events: all;
+  }
+}
+
+%btn-standard {
+  min-width: 130px;
+  padding: 0 18px;
+  height: $form-control-height;
+  line-height: $form-control-height - 2px;
+}
+
+.btn {
+  @extend %btn;
+  @extend %btn-standard;
+  background-color: $white;
+  border-color: $cloudy-blue;
+  color: $black;
+
+  &:hover:not(.disabled):not(:disabled) {
+    background-color: $cloudy-blue;
+    border-color: $cloudy-blue;
+  }
+
+  &:active:not(.disabled):not(:disabled) {
+    background-color: $cloudy-blue;
+    border-color: $steel;
+  }
+}
+
+.btn-primary {
+  @extend %btn;
+  @extend %btn-standard;
+  background-color: $tomato;
+  border-color: $tomato;
+  color: $white;
+
+  &:hover:not(.disabled):not(:disabled) {
+    background-color: $vermillion;
+    border-color: $vermillion;
+  }
+
+  &:active:not(.disabled):not(:disabled) {
+    background-color: $rusty-red;
+    border-color: $rusty-red;
+  }
+}
+
+.btn-secondary {
+  @extend %btn;
+  @extend %btn-standard;
+  background-color: $very-light-pink;
+  border-color: $very-light-pink;
+  color: $tomato;
+
+  &:hover:not(.disabled):not(:disabled) {
+    background-color: $light-peach;
+    border-color: $light-peach;
+  }
+
+  &:active:not(.disabled):not(:disabled) {
+    background-color: $pale-salmon;
+    border-color: $pale-salmon;
+  }
+}
+
+.btn-flat {
+  @extend %btn;
+  background-color: transparent;
+  border-color: transparent;
+  text-transform: none;
+  color: $tomato;
+
+  &:hover:not(.disabled):not(:disabled) {
+    background-color: transparent;
+    border-color: transparent;
+    color: $tomato;
+    text-decoration: underline;
+  }
+
+  &:active:not(.disabled):not(:disabled) {
+    background-color: transparent;
+    border-color: transparent;
+    color: $rusty-red;
+    text-decoration: underline;
+  }
+  &:disabled,
+  &.disabled {
+    color: $cloudy-blue;
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.btn-icon {
+  &:first-child {
+    margin-right: 10px;
+  }
+  &:last-child {
+    margin-left: 10px;
+  }
+}
+
+.btn-tip {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  transform: translate(-100%, -50%);
+  color: $black;
+  background-color: $white;
+  padding: 8px;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  text-transform: none;
+  line-height: 1.2;
+  border: 1px solid $disabled-border-color;
+  visibility: hidden;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(100%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  &:before {
+    border-width: 4px 0 4px 5px;
+    border-color: transparent transparent transparent $disabled-border-color;
+    box-shadow: $shadow;
+  }
+  &:after {
+    border-width: 3px 0 3px 4px;
+    border-color: transparent transparent transparent $white;
+  }
+  .btn-primary:disabled:hover &,
+  .btn-secondary:disabled:hover &,
+  .btn:disabled:hover & {
+    visibility: visible;
+  }
+}

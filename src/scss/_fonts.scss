@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap');
+
+.bold {
+  font-weight: 600;
+}
+
+.text {
+  & + & {
+    margin-top: 10px;
+  }
+}

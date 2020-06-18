@@ -1,0 +1,24 @@
+$indent-standart: 30px;
+$col-count: 12;
+$border-standart: 1px solid;
+$form-control-height: 32px;
+$multi-cross-size: 6.4px;
+
+//calendar
+:root {
+  --calendar-col-width: 20%;
+  --minute-height: 2px;
+  --scale-height: calc(var(--minutes-in-range) * var(--minute-height));
+  --slot-spacing: 3px;
+  --slot-spacings: 2 * var(--slot-spacing);
+  --calendar-vertical-indent: 25px;
+  --slot-delta-height:  calc(30 / var(--minutes-in-range));
+  --slot-height: calc(var(--slot-delta-height) * var(--minutes-in-range) * var(--minute-height));
+}
+
+$slot-spacing: var(--slot-spacing);
+$calendar-col-width: var(--calendar-col-width);
+$calendar-width: calc(var(--resources-amount) * var(--calendar-col-width));
+$scale-height: var(--scale-height);
+
+$calendar-vertical-indent: var(--calendar-vertical-indent);

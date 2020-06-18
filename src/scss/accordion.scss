@@ -1,0 +1,50 @@
+.accordion {
+  &.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.accordion-item {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height $transition-speed cubic-bezier(0, 1, 0, 1);
+  height: auto;
+
+  .accordion.open & {
+    transition: max-height $transition-speed cubic-bezier(1, 0, 1, 0);
+    max-height: 9999px;
+  }
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.19;
+  cursor: pointer;
+  transition: $transition-speed;
+  text-transform: capitalize;
+
+  &:hover,
+  &:focus {
+    color: $tomato;
+  }
+}
+
+.accordion-arrow {
+  margin-left: 10px;
+  transition: $transition;
+
+  .accordion.open & {
+    transform: rotate(180deg);
+  }
+
+  .accordion.disabled & {
+    display: none;
+  }
+}

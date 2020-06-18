@@ -1,0 +1,11 @@
+// export const GET_MODES = 'GET_MODES';
+// export const GET_MODE = 'GET_MODE';
+// export const CREATE_MODE = 'CREATE_MODE';
+// export const DELETE_MODE = 'DELETE_MODE';
+// export const EDIT_MODE = 'EDIT_MODE';
+// export const GET_DEFAULT_MODES = 'GET_DEFAULT_MODES';
+// export const SET_DEF_USER_MODE = 'SET_DEF_USER_MODE';
+// export const GET_USERS = 'GET_USERS';
+// export const CREATE_DEFAULT = 'CREATE_DEFAULT';
+// export const CREATE_AREA = 'CREATE_AREA';
+// export const REQUEST_FAIL = 'REQUEST_FAIL';

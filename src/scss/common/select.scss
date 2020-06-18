@@ -1,0 +1,271 @@
+.select {
+  position: relative;
+}
+
+.select-trigger {
+  @extend %text-control;
+  position: relative;
+  //background-color: #f8fafb;
+  cursor: pointer;
+}
+
+.select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: $border-radius;
+  margin: 0;
+  background: $white;
+  transition: $transition;
+  z-index: 1;
+
+  .select.open &,
+  &.open {
+    max-height: 100vh;
+    box-shadow: $shadow;
+    border: 1px solid $pinkish-grey;
+  }
+}
+
+.select-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: $transition;
+
+  .select.open & {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+.select-list {
+  padding: 7px 0;
+}
+
+.select-item {
+  height: 28px;
+  line-height: 28px;
+  padding: 0 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover,
+  &.active {
+    background-color: $pale-grey;
+  }
+
+  &.active {
+    cursor: default;
+  }
+}
+
+//React select overwriting
+
+.react-select__control {
+  .select & {
+    @extend .select-trigger;
+    display: flex;
+    padding: 0;
+    min-height: $form-control-height;
+    height: auto;
+  }
+
+  .select.react-select--is-disabled & {
+    color: $cloudy-blue;
+    border-color: $disabled-border-color;
+  }
+}
+
+.react-select__value-container {
+  .select & {
+    height: 100%;
+    min-width: 0%;
+    padding: 0 5px 0 12px;
+  }
+
+  .select:not(.is-searchable) & {
+    width: calc(100% + 8px);
+    flex-wrap: nowrap;
+  }
+}
+
+.react-select__placeholder {
+  .select & {
+    font-weight: normal;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .select:not(.is-searchable) & {
+    position: relative;
+    top: 0;
+    transform: none;
+  }
+}
+
+.react-select__indicator-separator {
+  .select & {
+    display: none;
+  }
+}
+
+.react-select__menu {
+  body & {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    //top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 156px;
+    border-radius: $border-radius;
+    margin-top: 0;
+    padding: 7px 0;
+    background: $white;
+    box-shadow: $shadow;
+    border: 1px solid $pinkish-grey;
+    transition: $transition;
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+
+.react-select__menu-list {
+  body & {
+    flex: 1 1 auto;
+    min-height: 0%;
+    overflow: auto;
+  }
+}
+
+.ps > .ps__scrollbar-x-rail, .ps > .ps__scrollbar-y-rail {
+  position: absolute;
+}
+
+.react-select__single-value,
+.react-select__multi-value {
+  .select & {
+    margin-left: 3px;
+    margin-right: 3px;
+    max-width: calc(100% - 12px);
+    color: inherit;
+  }
+
+  .select:not(.is-searchable) & {
+    position: relative;
+    top: 0;
+    transform: none;
+    max-width: 100%;
+  }
+}
+
+.react-select__multi-value {
+  .select & {
+    border-radius: 10px;
+    background-color: #f3f3f3;
+  }
+}
+
+.react-select__multi-value__label {
+  .select & {
+    font: inherit;
+  }
+}
+
+.react-select__option {
+  .react-select__menu & {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition;
+    color: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .react-select__menu &:hover:not(.react-select__option--is-selected):not(.react-select__option--is-disabled),
+  .react-select__menu &.react-select__option--is-focused:not(.react-select__option--is-selected):not(.react-select__option--is-disabled),
+  .react-select__menu &:active {
+    background-color: $pale-grey;
+    color: inherit;
+  }
+
+  .react-select__menu &.react-select__option--is-selected:not(.react-select__option--is-disabled) {
+    background-color: $very-light-pink;
+    color: inherit;
+  }
+
+  .react-select__menu &.react-select__option--is-selected,
+  .react-select__menu &.react-select__option--is-disabled {
+    cursor: default;
+  }
+
+  .react-select__menu &.react-select__option--is-disabled,
+  .react-select__menu &.react-select__option--is-disabled:hover {
+    color: $pale-grey;
+    background-color: transparent;
+  }
+}
+
+.react-select__indicator {
+  .select & {
+    padding: 0;
+    margin-right: 10px;
+    color: $steel;
+    transition: $transition;
+  }
+
+  .select & * {
+    display: none;
+  }
+
+  .select .react-select__control--menu-is-open &.react-select__dropdown-indicator {
+    transform: rotate(180deg);
+  }
+
+  .select.react-select--is-disabled & {
+    opacity: .3;
+  }
+}
+
+.react-select__multi-value__remove {
+  .select & {
+    width: 16px;
+    height: 21px;
+    position: relative;
+    cursor: pointer;
+    transition: $transition;
+  }
+
+  .select &:hover {
+    background-color: transparent;
+  }
+
+  .select & * {
+    display: none;
+  }
+
+  .select &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $multi-cross-size;
+    height: $multi-cross-size;
+  }
+
+  .select &:hover:after {
+    width: $multi-cross-size;
+    height: $multi-cross-size;
+  }
+}

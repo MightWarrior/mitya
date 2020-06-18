@@ -1,0 +1,30 @@
+.profile {
+  position: relative;
+  border-left: 1px solid $disabled-border-color;
+}
+
+.profile-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: $indent-standart;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    color: $tomato;
+  }
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.profile-menu {
+  right: $indent-standart;
+  width: auto;
+}

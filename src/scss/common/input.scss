@@ -1,0 +1,16 @@
+.input {
+  @extend %text-control;
+  border-radius: $border-radius-big;
+
+  .input-icon ~ & {
+    padding-right: 38px;
+  }
+}
+
+.input-icon {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
